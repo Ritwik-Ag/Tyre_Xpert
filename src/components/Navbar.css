@@ -1,0 +1,111 @@
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #be3600;
+}
+
+/* Navbar Icons */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-icons .icon {
+  font-size: 1.5em;
+  color: #ff4500;
+  cursor: pointer;
+}
+
+.navbar-icons .icon:hover {
+  color: #e03e00;
+}
+
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #e03e00; /* Updated logo color */
+}
+
+.logo-container img {
+  width: 150px;
+  height: auto;
+}
+
+.logo-container:hover {
+  opacity: 0.8; /* Optional hover effect */
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 300px; /* Sidebar width */
+  padding: 40px;
+  flex-grow: 1;
+  background-color: #f8f9fb;
+}
+
+/* Login and Signup Box Styling */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 350px;
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #333;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e03e00;
+}

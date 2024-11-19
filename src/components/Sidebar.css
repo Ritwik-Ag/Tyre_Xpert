@@ -1,0 +1,40 @@
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  height: 100vh;
+  position: fixed; /* Keep sidebar fixed on the left */
+  top: 0;
+  left: 0;
+  z-index: 10; /* Ensure sidebar stays above other elements */
+}
+
+.sidebar h1 {
+  color: #ff4500;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #ff4500;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 200px; /* Offset the main content by the sidebar width */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}

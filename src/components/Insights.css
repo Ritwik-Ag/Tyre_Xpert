@@ -1,0 +1,52 @@
+/* Insights Section */
+#insights {
+    display: flex;
+    align-items: center;
+    margin-left: 309px;
+    margin-top: -527px;
+    padding: 40px;
+    min-height: 100vh; /* Full height for the viewport */
+    background-color: #f8f9fb;
+  }
+  
+  #insights img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  #insights h2 {
+    font-size: 2em;
+    color: #ff4500;
+    margin-bottom: 10px;
+  }
+  
+  #insights p {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Card Styles */
+  .card {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    max-width: 800px; /* Set max width for better appearance */
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    #insights {
+      margin-left: 0;
+      padding: 20px;
+    }
+    #insights h2 {
+      font-size: 1.5em;
+    }
+  }
+  
