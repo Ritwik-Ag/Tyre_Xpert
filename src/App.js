@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RootLayout from './components/Layout/RootLayout';
 import Dashboard from "./components/Dashboard";
-import Insights from "./components/Insights";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import HeroLayout from './components/Layout/HeroLayout';
@@ -11,6 +10,7 @@ import Sidebar from './components/Sidebar';
 import TeamSelection from './components/TeamSelection'; // Import the TeamSelection component
 import TeamDetail from './components/TeamDetail';
 import FeedbackForm from './components/FeedbackForm';
+import AboutUs from './components/AboutUs';
 import './App.css';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
 
           {/* Additional standalone routes */}
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/insights" element={<Insights />} />
+          
           
           {/* New Team Selection Page */}
           <Route path="/teams" element={<TeamSelection />} />
@@ -36,6 +36,7 @@ function App() {
           {/* Team details page */}
           <Route path="/team/:teamName" element={<TeamDetail />} />
           <Route path="/feedback" element={<FeedbackForm />} />
+          <Route path="/aboutus" element={<AboutUs/>}/>
 
           {/* Login and SignUp Pages */}
           <Route path="/login" element={<Login />} />

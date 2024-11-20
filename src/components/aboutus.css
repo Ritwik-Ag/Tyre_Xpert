@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+    color: #fff; /* White text */
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-weight: 700; /* Bold font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  }
+  
+  p, li {
+    margin-left: 325px;
+    color: #fff; /* White text */
+    font-family: 'Roboto', sans-serif; /* Clean font */
+    line-height: 1.6; /* Comfortable line spacing */
+  }
+  
+  h2 {
+    margin-left: 310px;
+    color: #e74c3c; /* Red heading */
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-weight: 700; /* Bold font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  }
+  
+  /* Add a dark background to the entire section */
+  #about-section {
+    background-color: #222; /* Dark background */
+    padding: 50px 0;
+  }

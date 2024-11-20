@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./TeamSelection.css";
 import { SiFerrari, SiMercedes,SiRedbull,SiMclaren,SiAstonmartin} from "react-icons/si";
+import Footer from "./Footer";
 
 
 // Dummy data for teams
@@ -52,7 +53,7 @@ function TeamSelection() {
 
   return (
     <div className="team-selection">
-      <h1 className="heading">Team Selection</h1>
+      <h1 className="heading">Team View</h1>
       {/* Search Bar */}
       <div className="search-bar">
         <input
@@ -86,6 +87,7 @@ function TeamSelection() {
           ))
         )}
       </div>
+      <Footer/>
     </div>
   );
 }

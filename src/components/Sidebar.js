@@ -14,9 +14,9 @@ function Sidebar() {
       <nav className="sidebar-nav">
         <Link to="/" className="sidebar-link">Dashboard</Link>
         <Link to="/data-entry" className="sidebar-link">Data Entry</Link>
-        <Link to="/insights" className="sidebar-link">Insights</Link>
-        <Link to="/teams" className="sidebar-link">Team Selection</Link>
-        <Link to="/feedback" className="sidebar-link">Feedback Form</Link>
+        <Link to="/teams" className="sidebar-link">Team View</Link>
+        <Link to="/feedback" className="sidebar-link">Feedback</Link>
+        <Link to="/aboutus" className="sidebar-link">About Us</Link>
       </nav>
     </div>
   );
