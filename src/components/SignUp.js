@@ -1,37 +1,73 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // To redirect after signup
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import "./SignUp.css";
 
 function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add sign-up logic here (e.g., create a new user)
-    console.log("Signed up with:", email);
-    // Redirect to login or dashboard after signup
-    navigate('/login');
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("http://localhost:5001/user/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 201) {
+        alert("Signup Successfull")
+        navigate("/login");
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
     <div className="signup-page">
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <input
+            type="text"
+            placeholder="Name"
+            {...register("name", { required: "Name is required" })}
+          />
+          {errors.name && <p className="error">{errors.name.message}</p>}
+        </div>
+        <div>
+          <input
+            type="email"
+            placeholder="Email"
+            {...register("email", { 
+              required: "Email is required", 
+              pattern: { 
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, 
+                message: "Invalid email address" 
+              } 
+            })}
+          />
+          {errors.email && <p className="error">{errors.email.message}</p>}
+        </div>
+        <div>
+          <input
+            type="password"
+            placeholder="Password"
+            {...register("password", { 
+              required: "Password is required", 
+              minLength: { value: 6, message: "Password must be at least 6 characters" } 
+            })}
+          />
+          {errors.password && <p className="error">{errors.password.message}</p>}
+        </div>
         <button type="submit">Sign Up</button>
       </form>
       <p>

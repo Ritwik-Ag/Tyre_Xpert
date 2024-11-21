@@ -1,31 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);  // Track login status
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Logged in with", username, password);
-    
-    // Simulate successful login
-    setIsLoggedIn(true); // Update login status
-    // After successful login, redirect to the dashboard
-    navigate("/");
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("http://localhost:5001/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200) {
+       alert("Login Successfull")
+        navigate("/");
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   const handleLogoClick = () => {
-    console.log("Logo clicked, login triggered");
     navigate("/dashboard");
   };
-
-  if (isLoggedIn) {
-    return null; // Hide login page after login
-  }
 
   return (
     <div className="login-container">
@@ -35,21 +43,21 @@ function Login() {
             TyreXpert
           </span>
         </h2>
-        <form onSubmit={handleSubmit}>
-          <label>Username:</label>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label>Email:</label>
           <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
+            type="email"
+            {...register("email", { required: "Email is required" })}
           />
+          {errors.email && <p className="error">{errors.email.message}</p>}
+          
           <label>Password:</label>
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            {...register("password", { required: "Password is required" })}
           />
+          {errors.password && <p className="error">{errors.password.message}</p>}
+          
           <button type="submit">Login</button>
         </form>
         <p className="signup-link">

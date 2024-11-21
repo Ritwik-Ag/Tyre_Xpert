@@ -1,4 +1,7 @@
 /* Login Page Styles */
+body{
+  color: black;
+}
 .login-container {
   display: flex;
   flex-direction: column;
@@ -6,6 +9,7 @@
   justify-content: center;
   height: 100vh;
   background-color: #f4f4f9; /* Light background */
+
 }
 
 .login-container h2 {

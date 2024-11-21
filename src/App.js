@@ -16,7 +16,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="app-container">
         <Routes>
           {/* Root layout for the main site pages */}
